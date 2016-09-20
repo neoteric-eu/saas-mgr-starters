@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.neoteric.starter</groupId>
+        <artifactId>neo-starter-dependencies</artifactId>
+        <version>0.3.2</version>
+    </parent>
+
+    <groupId>com.neoteric.starter</groupId>
+    <artifactId>saas-mgr-starter-build</artifactId>
+    <version>0.4.0-SNAPSHOT</version>
+
+    <packaging>pom</packaging>
+
+    <name>Saas Mgr Starters Build</name>
+    <description>Saas Mgr Starters Build</description>
+    <url>http://github.com/neoteric-eu/saas-mgr-starters</url>
+    <organization>
+        <name>Neoteric</name>
+        <url>http://www.neoteric.eu</url>
+    </organization>
+
+    <scm>
+        <url>https://github.com/neoteric-eu/saas-mgr-starters</url>
+        <connection>scm:git:ssh://git@github.com/neoteric-eu/saas-mgr-starters.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/neoteric-eu/saas-mgr-starters.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
+    <distributionManagement>
+        <repository>
+            <id>neoteric-os-releases</id>
+            <name>Neoteric OpenSource releases</name>
+            <url>http://naga.neoteric.eu:8081/nexus/content/repositories/os-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>neoteric-os-snapshots</id>
+            <name>Neoteric OpenSource snapshots</name>
+            <url>http://naga.neoteric.eu:8081/nexus/content/repositories/os-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <repositories>
+        <repository>
+            <id>neoteric-os-releases</id>
+            <name>Neoteric OpenSource releases</name>
+            <url>http://naga.neoteric.eu:8081/nexus/content/repositories/os-releases/</url>
+        </repository>
+    </repositories>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
+        <maven-source-plugin.version>2.4</maven-source-plugin.version>
+        <maven-javadoc-plugin.version>2.10.3</maven-javadoc-plugin.version>
+        <maven-antrun-plugin.version>1.7</maven-antrun-plugin.version>
+        <sonar-maven-plugin.version>3.0.1</sonar-maven-plugin.version>
+    </properties>
+
+    <modules>
+        <module>neo-starter-saasmgr</module>
+        <module>neo-starter-saasmgr-test</module>
+    </modules>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${maven-compiler-plugin.version}</version>
+                    <configuration>
+                        <source>${java.version}</source>
+                        <target>${java.version}</target>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>${maven-source-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>${maven-javadoc-plugin.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>${sonar-maven-plugin.version}</version>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
